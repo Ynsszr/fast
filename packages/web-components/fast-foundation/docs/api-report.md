@@ -176,6 +176,8 @@ export class Carousel extends FASTElement {
 
 // @public
 export class CarouselSlide extends FASTElement {
+    // (undocumented)
+    even: boolean;
 }
 
 // @public
@@ -368,12 +370,33 @@ export const forcedColorsStylesheetBehavior: (sheet: ElementStyles) => Readonly<
             prototype: HTMLElement;
         }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
         define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
-        getDefinition<T_1 extends Function>(Type: T_1): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
     }, ((this: MediaQueryList) => void)[] | ((this: MediaQueryList) => void)>;
     sheet: ElementStyles;
-    constructListener(this: MatchMediaStyleSheetBehavior, source: typeof FASTElement, sheet: ElementStyles): MediaQueryListListener;
-    bind(this: MatchMediaStyleSheetBehavior, source: typeof FASTElement): void;
-    unbind(this: MatchMediaStyleSheetBehavior, source: typeof FASTElement): void;
+    constructListener(this: MatchMediaStyleSheetBehavior, source: (new () => HTMLElement & FASTElement) & {
+        from<TBase extends {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
+        define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+    }, sheet: ElementStyles): MediaQueryListListener;
+    bind(this: MatchMediaStyleSheetBehavior, source: (new () => HTMLElement & FASTElement) & {
+        from<TBase extends {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
+        define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+    }): void;
+    unbind(this: MatchMediaStyleSheetBehavior, source: (new () => HTMLElement & FASTElement) & {
+        from<TBase extends {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
+        define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+    }): void;
 }>;
 
 // @public
@@ -394,12 +417,33 @@ export function matchMediaStylesheetBehaviorFactory(query: MediaQueryList): (she
             prototype: HTMLElement;
         }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
         define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
-        getDefinition<T_1 extends Function>(Type: T_1): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
     }, ((this: MediaQueryList) => void)[] | ((this: MediaQueryList) => void)>;
     sheet: ElementStyles;
-    constructListener(this: MatchMediaStyleSheetBehavior, source: typeof FASTElement, sheet: ElementStyles): MediaQueryListListener;
-    bind(this: MatchMediaStyleSheetBehavior, source: typeof FASTElement): void;
-    unbind(this: MatchMediaStyleSheetBehavior, source: typeof FASTElement): void;
+    constructListener(this: MatchMediaStyleSheetBehavior, source: (new () => HTMLElement & FASTElement) & {
+        from<TBase extends {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
+        define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+    }, sheet: ElementStyles): MediaQueryListListener;
+    bind(this: MatchMediaStyleSheetBehavior, source: (new () => HTMLElement & FASTElement) & {
+        from<TBase extends {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
+        define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+    }): void;
+    unbind(this: MatchMediaStyleSheetBehavior, source: (new () => HTMLElement & FASTElement) & {
+        from<TBase extends {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        }>(BaseType: TBase): new () => InstanceType<TBase> & FASTElement;
+        define<TType extends Function>(Type: TType, nameOrDef?: string | import("@microsoft/fast-element").PartialFASTElementDefinition | undefined): TType;
+        getDefinition<T extends Function>(Type: T): import("@microsoft/fast-element").FASTElementDefinition | undefined;
+    }): void;
 }>;
 
 // @public
@@ -825,7 +869,7 @@ export class TreeItem extends FASTElement {
     // (undocumented)
     handleFocus: (e: Event) => void;
     // (undocumented)
-    handleKeyDown: (e: KeyboardEvent) => void | boolean;
+    handleKeyDown: (e: KeyboardEvent) => boolean | void;
     // (undocumented)
     items: HTMLElement[];
     // (undocumented)
@@ -855,7 +899,7 @@ export class TreeView extends FASTElement {
     // (undocumented)
     handleFocus: (e: FocusEvent) => void;
     // (undocumented)
-    handleKeyDown: (e: KeyboardEvent) => void | boolean;
+    handleKeyDown: (e: KeyboardEvent) => boolean | void;
     // (undocumented)
     renderCollapsedNodes: boolean;
     // (undocumented)
@@ -870,8 +914,8 @@ export const TreeViewTemplate: import("@microsoft/fast-element").ViewTemplate<Tr
 
 // Warnings were encountered during analysis:
 //
-// dist/dts/utilities/match-media-stylesheet-behavior.d.ts:48:5 - (ae-forgotten-export) The symbol "MatchMediaStyleSheetBehavior" needs to be exported by the entry point index.d.ts
-// dist/dts/utilities/match-media-stylesheet-behavior.d.ts:48:5 - (ae-forgotten-export) The symbol "MediaQueryListListener" needs to be exported by the entry point index.d.ts
+// dist/dts/utilities/match-media-stylesheet-behavior.d.ts:69:5 - (ae-forgotten-export) The symbol "MatchMediaStyleSheetBehavior" needs to be exported by the entry point index.d.ts
+// dist/dts/utilities/match-media-stylesheet-behavior.d.ts:69:5 - (ae-forgotten-export) The symbol "MediaQueryListListener" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
